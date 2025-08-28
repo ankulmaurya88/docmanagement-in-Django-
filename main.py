@@ -1,0 +1,3 @@
+name="ankul"
+
+print(name)
