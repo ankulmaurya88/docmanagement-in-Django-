@@ -1,5 +1,4 @@
 annotated-types==0.7.0
-apturl==0.5.2
 asgiref==3.8.1
 asttokens==3.0.0
 attrs==19.3.0
