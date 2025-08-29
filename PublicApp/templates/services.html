@@ -1,0 +1,90 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+   
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/static/publicstatic/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="fa fa-chevron-right"></i></a></span> <span>Services <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">Services</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+		<section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+          	<span class="subheading">Services</span>
+            <h2 class="mb-4">Why Choose Us?</h2>
+            <p>Healthcare that includes prevention, treatment, rehabilitation and health education for patients, their families and clients by touching their lives.</p>
+          </div>
+        </div>
+  			<div class="row tabulation mt-4 ftco-animate">
+  				<div class="col-md-4">
+						<ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
+						  <li class="nav-item text-left">
+						    <a class="nav-link active py-4" data-toggle="tab" href="#services-1"><img src="{% static 'publicstatic/images/OIP__4_-removebg-preview (1).png' %}" style="width:50px;height:50px;">Heart Institute</a>
+						  </li>
+						  <li class="nav-item text-left">
+						    <a class="nav-link py-4" data-toggle="tab" href="#services-2"><img src="{% static 'publicstatic/images/icon88-21-512-removebg-preview.png' %}" style="width:50px;height:50px;">Insitute Of Orthopedics</a>
+						  </li>
+						  <li class="nav-item text-left">
+						    <a class="nav-link py-4" data-toggle="tab" href="#services-3"><img src="{% static 'publicstatic/images/12-01-512-removebg-preview.png' %}" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;Cancer Institute</a>
+						  </li>
+						  <li class="nav-item text-left">
+						    <a class="nav-link py-4" data-toggle="tab" href="#services-4"><img src="{% static 'publicstatic/images/Rfb2e7efb49cd309266ea812653f607bb.png' %}" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;Neurosciences</a>
+						  </li>
+						  <li class="nav-item text-left">
+						    <a class="nav-link py-4" data-toggle="tab" href="#services-5"><img src="{% static 'publicstatic/images/dg6.png' %}" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;Gastroenterology</a>
+						  </li>
+						  <li class="nav-item text-left">
+						    <a class="nav-link py-4" data-toggle="tab" href="#services-6"><img src="{% static 'publicstatic/images/dg7.png' %}" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;Emergency</a>
+						  </li>
+						</ul>
+					</div>
+					<div class="col-md-8">
+						<div class="tab-content">
+						  <div class="tab-pane container p-0 active" id="services-1">
+						  	<div class="img" style="background-image: url('/static/publicstatic/images/1.jpg');"></div>
+						  	<h3><a href="#">Heart Institute</a></h3>
+						  	<p>Find a Heart Institute location near you. Committed to preventing Heart Disease, Stroke, and Heart Attacks. </p>
+						  </div>
+						  <div class="tab-pane container p-0 fade" id="services-2">
+						  	<div class="img" style="background-image: url('/static/publicstatic/images/2.jpg');"></div>
+						  	<h3><a href="#">Orthopedics</a></h3>
+						  	<p>Orthopedic surgery or orthopedics, also spelled orthopaedics, is the branch of surgery concerned with conditions involving the musculoskeletal system.</p>
+						  </div>
+						  <div class="tab-pane container p-0 fade" id="services-3">
+						  	<div class="img" style="background-image: url('/static/publicstatic/images/3.jpg');"></div>
+						  	<h3><a href="#">Cancer Institute</a></h3>
+						  	<p>Cancer is a group of diseases involving abnormal cell growth with the potential to invade or spread to other parts of the body. These contrast with benign tumors, which do not spread. Possible signs and symptoms include a lump, abnormal bleeding, prolonged cough, unexplained weight loss, and a change in bowel movements. </p>
+						  </div>
+						  <div class="tab-pane container p-0 fade" id="services-4">
+						  	<div class="img" style="background-image: url('/static/publicstatic/images/4.jpg');"></div>
+						  	<h3><a href="#">Neurosciences</a></h3>
+						  	<p>
+Neuroscience (or neurobiology) is the scientific study of the nervous system. It is a multidisciplinary science that combines physiology, anatomy, molecular biology, developmental biology, cytology, mathematical modeling, and psychology.</p>
+						  </div>
+						  <div class="tab-pane container p-0 fade" id="services-5">
+						  	<div class="img" style="background-image: url('/static/publicstatic/images/6.jpg');"></div>
+						  	<h3><a href="#">Gastroenterology</a></h3>
+						  	<p>
+Gastroenterology is the branch of medicine focused on the digestive system and its disorders. Diseases affecting the gastrointestinal tract, which include the organs from mouth into anus.</p>
+						  </div>
+						  <div class="tab-pane container p-0 fade" id="services-6">
+						  	<div class="img" style="background-image: url('/static/publicstatic/images/7.jpg');"></div>
+						  	<h3><a href="#">Emergency</a></h3>
+						  	<p>
+Emergency Ambulance Service is a hospital & health care company specializing in basic life support transport services.</p>
+						  </div>
+						</div>
+					</div>
+				</div>
+    	</div>
+    </section>
+    
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">My Schedules</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-border table-striped custom-table datatable mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Appointment Id</th>
+                                        <th>Patient Name</th>
+                                        <th>Age</th>
+                                        <th>Disease</th>
+                                        <th>Appointment Date</th>
+                                        <th>Appointment Time</th>
+                                        <th>Contact No</th>
+                                        <th>Email Address</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for appointment in appointments %}
+                                    
+                                    
+                                    <tr>
+                                        <td>{{appointment.id}}</td>
+                                        <td>{{appointment.patientName}}</td>
+                                        <td>{{appointment.patientAge}}</td>
+                                        <td>{{appointment.msg}}</td>
+                                        <td>{{appointment.appointmentDate}}</td>
+                                        <td>{{appointment.appointmentTime}}</td>
+                                        <td>{{appointment.patientMobile}}</td>
+                                        <td><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">{{appointment.patientEmail}}</a></td>
+                                        
+                                    </tr>
+                                   
+                                    {% endfor %}
+                                    
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="delete_patient" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="{% static 'adminstatic/assets/img/sent.png' %}" alt="" width="50" height="46">
+                        <h3>Are you sure want to delete this Patient?</h3>
+                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

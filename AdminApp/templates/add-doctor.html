@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    var check = function() {
+      if (document.getElementById('password').value ==
+        document.getElementById('confirm_password').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'Both Passwords are matching';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Passwords not matching';
+      }
+    }
+  </script>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Doctor</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+
+                        <form method="POST" action="/adddoctor/" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% if msg %}
+                            <center style='color: red;'>{{msg}}</center>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input class="form-control" type="text" name="last_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Username <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="username" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="form-control" type="password" name="pass1" id="password" onkeyup="check();" required minlength="4">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+                                        <input class="form-control" type="password" name="pass2" id="confirm_password" onkeyup="check();" required minlength="4">
+                                        <span id='message'></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <div >
+                                            <input type="date" class="form-control datetimepicker" name="DOB" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group gender-select">
+                                        <label class="gen-label">Gender:</label>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+												<input type="radio" name="gender" value="Male" class="form-check-input">Male
+											</label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+												<input type="radio" name="gender" value="Female" class="form-check-input">Female
+											</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <textarea type="text" class="form-control " name="address"></textarea>
+                                            </div>
+                                        </div>
+                                       </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone </label>
+                                        <input class="form-control" type="number" name="contact" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Avatar</label>
+                                        <div class="profile-upload">
+                                            <div class="upload-img">
+                                                <img alt="" src="{% static 'adminstatic/assets/img/user.jpg' %}">
+                                            </div>
+                                            <div class="upload-input">
+                                                <input type="file" class="form-control" name="pic">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select class="select" name="specialist"
+                                  style="width:100%;padding-bottom:20px; margin-bottom:20px;border:none;background-color:#F2F2F2; font-family: Roboto, sans-serif;">
+                                  <option>Specialist</option>
+                                  {% for department in departments %}
+                                  
+                                  <option>{{department.departmentName}}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                            
+                            <div class="m-t-20 text-center">
+                                <input type="submit" value="Create Doctor" class="btn btn-primary submit-btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+{% endblock %}            

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <link rel="stylesheet" href="{% static 'publicstatic/css/ls.css' %}">
+  <title> Sign Up As Doctor</title>
+</head>
+
+<body>
+
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>Sign Up</h3>
+            <p>Please enter your credentials as a doctor.</p>
+            <p>Not A Doctor ?<a href="/signin/">Register Here</a></p>
+          </div>
+        </div>
+        <script>
+          var check = function() {
+            if (document.getElementById('password').value ==
+              document.getElementById('confirm_password').value) {
+              document.getElementById('message').style.color = 'green';
+              document.getElementById('message').innerHTML = 'Both Passwords are matching';
+            } else {
+              document.getElementById('message').style.color = 'red';
+              document.getElementById('message').innerHTML = 'Passwords not matching';
+            }
+          }
+        </script>
+        <form class="row register-form" action="/docsign/" method="POST" enctype="multipart/form-data" >
+          {% csrf_token %}
+          {% if msg %}
+          <center style='color: red;'>{{msg}}</center>
+          {% endif %}
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="First Name *" name='first_name' value="" required/>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Last Name *" name='last_name' value="" required/>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email *" name='email' value="" required/>
+            </div>
+            <div class="form-group">
+              <input type="text" minlength="10" maxlength="10" name="contact" class="form-control"
+                placeholder="Your Phone *" value="" required/>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="Date" class="form-control" placeholder="DOB*" name='DOB' value="" required />
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="4" cols="30" placeholder="address*" name='address' value=""></textarea>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="specialist"
+                  style="width:100%;padding-bottom:20px; margin-bottom:20px;border:none;background-color:#F2F2F2; font-family: Roboto, sans-serif;">
+                  <option>Specialist</option>
+                                  {% for department in departments %}
+                                  
+                                  <option>{{department.departmentName}}</option>
+                                  {% endfor %}
+
+                </select>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="User Name*" name='username' value="" required />
+              </div>
+              <div class="form-group">
+                <input type="password" minlength="4" name="pass1" class="form-control"
+                  placeholder="Password*" value="" id="password" onkeyup="check();" required/>
+              </div>
+
+
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Confirm Password*" name='pass2' value="" id="confirm_password" onkeyup="check();" required/>
+                <span id='message'></span>
+              </div>
+              <div class="form-group">
+                <label>Upload Profile Picture</label>
+                <input type="file" class="form-control" name='pic' value="" />
+              </div>
+              <a ><input type="submit" value="Register" class="btn btn-dark" style="background-color: seagreen;"></a>
+              <!--  <input type="submit" class="btnRegister"  value="Register"/> -->
+            </div>
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+    </div>
+    </div>
+
+  </body>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    var check = function() {
+      if (document.getElementById('password').value ==
+        document.getElementById('confirm_password').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'Both Passwords are matching';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Passwords not matching';
+      }
+    }
+  </script>
+        <form action="/changepass/" method="POST" class="login-form pt-5 mt-5" style="padding-left: 500px; padding-bottom: 150px;">
+            {% csrf_token %}
+            {% if msg%}
+            <center style="color: red;">{{msg}}</center>
+        {% endif %}
+            <div class="form-group">
+                <label>Old Password</label>
+                <input type="password" placeholder="Enter password" class="form-control col-md-4" name="oldpass" required>
+
+            </div>
+            <div class="form-group">
+                <label>New Password</label>
+                <input type="password" placeholder="Enter password" class="form-control col-md-4" name="password1" id="password" onkeyup="check();" required>
+
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Enter password" class="form-control col-md-4" name="password2" id="confirm_password" onkeyup="check();" required>
+                <span id='message'></span>
+            </div>
+            <div class="form-group pt-5">
+                <center><input type="submit" class="login-btn" style="margin-left: -650px;" value="Submit"></center>
+            </div>
+        </form>
+    </div>
+{% endblock %}

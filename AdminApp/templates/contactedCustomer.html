@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Customer Contacted To Us</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-border table-striped custom-table datatable mb-0">
+                                <thead>
+                                   
+                                    <tr>
+                                        <th>Serial No</th>
+                                        <th>Customer Name</th>
+                                        <th>Customer E-Mail</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
+                                        <th>Action</th>
+                                        
+                                                                    
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for c in customerDetails %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{c.CustomerName}}</td>
+                                        <td><a href="mailto:{{c.CustomerEmail}}">{{c.CustomerEmail}}</a></td>
+                                        <td>{{c.Subject}}</td>
+                                        <td>{{c.msg}}</td>
+                                        <td><a href="mailto:{{c.CustomerEmail}}" target="_blank" style="color: green;">Reply</a> or <a href="/deleteCutomerDetails/{{c.id}}/" style="color: red;">Delete</a> </td>
+                                        
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        
+     
+    </div>
+{% endblock %}    

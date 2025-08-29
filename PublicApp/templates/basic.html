@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>e-Hospitality</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="{% static 'publicstatic/css/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'publicstatic/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'publicstatic/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'publicstatic/css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'publicstatic/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'publicstatic/css/jquery.timepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'publicstatic/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'publicstatic/css/style.css' %}">
+  </head>
+  <body>
+  	
+		
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+				<div class="order-lg-last">
+          <a href="/signin/" class="btn btn-primary" style="margin-left:20px;background-color:blue;border:none;">Sign Up</a></div>
+          <div class="order-lg-last">
+           <a href="/login/" class="btn btn-primary" style="margin-left:10px;background-color:#FFBF00;border:none;">Login</a>
+        </div>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+                    <a href="/indexpublic/">
+	      		        <img src="{% static 'publicstatic/images/medicare-removebg-preview.png' %}">
+                    </a>
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="/indexpublic/" class="nav-link" style="padding-left:30px;">Home</a></li>
+	        	<li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+	        	
+	        	<li class="nav-item"><a href="/services/" class="nav-link">Services</a></li>
+
+	          <li class="nav-item"><a href="/contact/" class="nav-link">Contact Us</a></li>
+	        </ul>
+	      </div>
+	    </div>
+      </nav>
+      {% block content %}      {% endblock %}
+
+      <footer class="footer ftco-section ftco-no-pt">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-md-6 col-lg">
+              <div class="ftco-footer-widget py-4 py-md-5">
+                <h2 class="logo"><a href="#">MediCare</a></h2>
+                <p>eHospital is not anyway affiliated with e-hospital.gov.in, nor we have any content similarities. ehospital.in is a simplified hospital and health directory aimed at reaching the Indian population with transparent information.</p>
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-4">
+                  <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+              <div class="ftco-footer-widget ml-md-5 py-5">
+                <h2 class="ftco-heading-2">Services</h2>
+                <ul class="list-unstyled">
+                <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Heart Institute</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Orthopedics</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Cancer Institute</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Neurosciences</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Gastroenterology</a></li>
+                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Emergency</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+              <div class="ftco-footer-widget py-4 py-md-5">
+                  <h2 class="ftco-heading-2">Contact information</h2>
+                  <div class="block-23 mb-3">
+                    <ul>
+                      <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                      <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                      <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+               <div class="ftco-footer-widget bg-primary p-4 py-5">
+                <h2 class="ftco-heading-2">Business Hours</h2>
+                <div class="opening-hours">
+                    <h4>Opening Days:</h4>
+                    <p class="pl-3">
+                        <span>Monday – Friday : 9am to 20 pm</span>
+                        <span>Saturday : 9am to 17 pm</span>
+                    </p>
+                    <h4>Vacations:</h4>
+                    <p class="pl-3">
+                        <span>All Sunday Days</span>
+                        <span>All Official Holidays</span>
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+  
+              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Betacentauri Pvt.Ltd</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+    
+  
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  
+  
+    <script src="{% static 'publicstatic/js/jquery.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/popper.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery.timepicker.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'publicstatic/js/scrollax.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{% static 'publicstatic/js/google-map.js' %}"></script>
+    <script src="{% static 'publicstatic/js/main.js' %}"></script>
+    </body>
+  </html>

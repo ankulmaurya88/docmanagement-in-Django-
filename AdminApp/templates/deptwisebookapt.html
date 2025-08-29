@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-5 col-5">
+                        <h4 class="page-title">Departments Wise Booking Appointments</h4>
+                        <p style="color: red;"><i>Please do not proceed for booking an appointment if the department has zero available doctors.</i> </p>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table mb-0 datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Department No</th>
+                                        <th>Department Name</th>
+                                        <!-- <th>Department Status </th> -->
+                                        <th>Doctors Available </th>
+                                        
+                                        
+                                        <th >Click To Book</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for key,value in docCount.items %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{key}}</td>
+                                        
+                                        <!-- {% if department.status == "Active" %}
+                                        <td><span class="custom-badge status-green ">{{department.status}}</span></td>
+                                        {% else %}
+                                        <td><span class="custom-badge status-red ">{{department.status}}</span></td>
+                                        {% endif %}
+                                         -->
+
+                                        
+                                        <td>{{value}}</td>
+                                        
+                                        <!-- <td>{{d.departmentName}}</td> -->
+                                        {% if value != 0 %}
+                                        <td><a href="/bookappointment/{{key}}">Book Here</a></td>
+                                        {% else %}
+                                        <td><a href="#" style="color: red;">Sorry ! Cann't book appointment.</a></td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    <div id="delete_department" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="{% static 'adminstatic/assets/img/sent.png' %}" alt="" width="50" height="46">
+                    <h3>Are you sure want to delete this Department?</h3>
+                    <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

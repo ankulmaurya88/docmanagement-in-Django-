@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Patients Registered</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-border table-striped custom-table datatable mb-0">
+                                <thead>
+                                   
+                                    <tr>
+                                        <th>Serial No</th>
+                                        <th>Patient Name</th>
+                                        <th>E-Mail</th>
+                                        <th>Contact No.</th>
+                                        <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Joined Us On</th>
+                                                                    
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for p in patientdetails %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{p.user.first_name}} {{p.user.last_name}}</td>
+                                        <td><a href="mailto:{{p.user.email}}">{{p.user.email}}</a></td>
+                                        <td><a href="tel:{{p.contact_No}}">{{p.contact_No}}</a></td>
+                                        <td>{{p.gender}}</td>
+                                        <td>{{p.address}}</td>
+                                        <td>{{p.created_at}}</td>
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div id="delete_patient" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="{% static 'adminstatic/assets/img/sent.png' %}" alt="" width="50" height="46">
+                        <h3>Are you sure want to delete this Patient?</h3>
+                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}    

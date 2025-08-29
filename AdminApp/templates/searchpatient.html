@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Found Patients Having Appointments</h4>
+                    </div>
+                    <form action="/searchpatient" method="get" enctype="multipart/form-data" class="form-inline my-2 my-lg-0">
+                        {% csrf_token %}
+                        <input class="form-control mr-sm-2" type="search" placeholder="Patient Name" name="query" value="{{query}}" aria-label="Search" id="query">
+                        <input type="submit" value="Search">
+                        </form>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-border table-striped custom-table datatable mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Serial No</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Which Department</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Doctor Observing</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if foundPatient %}
+                                    {% for p in foundPatient %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td><img width="28" height="28" src="{% static 'adminstatic/assets/img/user.jpg' %}" class="rounded-circle m-r-5" alt="">{{p.patientName}}</td>
+                                        <td>{{p.patientAge}}</td>
+                                        <td>{{p.department}}</td>
+                                        <td>{{p.patientEmail}}</td>
+                                        <td>{{p.patientMobile}}</td>
+                                        <td>{{p.doctorName}}</td>
+                                        
+                                       
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <p style="color: red;"><b>Sorry , No Record Found</b></p>
+                                    {% endif %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="delete_patient" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="{% static 'adminstatic/assets/img/sent.png' %}" alt="" width="50" height="46">
+                        <h3>Are you sure want to delete this Patient?</h3>
+                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

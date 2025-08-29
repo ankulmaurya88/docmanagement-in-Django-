@@ -1,3 +1,0 @@
-name="ankul"
-
-print(name)
